@@ -8,4 +8,5 @@
  * Username (eg.  tsademo) 
  * Passworde (eg. tsademo)
  * Click OK:
+ ### timestamp signature
  * Once the configuration is done, the button "Time Stamp" appears in the signature panel.
