@@ -3,7 +3,7 @@ package tsp
 import (
 	"encoding/asn1"
 	"errors"
-	"github.com/tsasdk/tsasdk-go/crypto/pki"
+	"github.com/diao2018/tsasdk/tsasdk-go/crypto/pki"
 )
 
 type Response struct {

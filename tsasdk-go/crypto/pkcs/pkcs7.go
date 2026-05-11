@@ -7,7 +7,7 @@ import (
 	"crypto/x509/pkix"
 	"encoding/asn1"
 	"errors"
-	"github.com/tsasdk/tsasdk-go/crypto/oid"
+	"github.com/diao2018/tsasdk/tsasdk-go/crypto/oid"
 	"math/big"
 	"time"
 )

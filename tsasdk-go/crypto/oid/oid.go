@@ -4,7 +4,7 @@ import (
 	"crypto/x509"
 	"encoding/asn1"
 
-	"github.com/tsasdk/tsasdk-go/crypto/digest"
+	"github.com/diao2018/tsasdk/tsasdk-go/crypto/digest"
 )
 
 var (
@@ -12,12 +12,14 @@ var (
 	OIDDigestAlgorithmSHA256 = asn1.ObjectIdentifier{2, 16, 840, 1, 101, 3, 4, 2, 1}
 	OIDDigestAlgorithmSHA384 = asn1.ObjectIdentifier{2, 16, 840, 1, 101, 3, 4, 2, 2}
 	OIDDigestAlgorithmSHA512 = asn1.ObjectIdentifier{2, 16, 840, 1, 101, 3, 4, 2, 3}
+	OIDDigestAlgorithmSM3    = asn1.ObjectIdentifier{1, 2, 156, 10197, 1, 401}
 )
 
 var DigestAlgorithmOIDs = map[digest.Algorithm]asn1.ObjectIdentifier{
 	digest.SHA256: OIDDigestAlgorithmSHA256,
 	digest.SHA384: OIDDigestAlgorithmSHA384,
 	digest.SHA512: OIDDigestAlgorithmSHA512,
+	digest.SM3:    OIDDigestAlgorithmSM3,
 }
 
 var (

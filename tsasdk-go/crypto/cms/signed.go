@@ -9,8 +9,8 @@ import (
 	"encoding/hex"
 	"time"
 
-	"github.com/tsasdk/tsasdk-go/crypto/digest"
-	"github.com/tsasdk/tsasdk-go/crypto/oid"
+	"github.com/diao2018/tsasdk/tsasdk-go/crypto/digest"
+	"github.com/diao2018/tsasdk/tsasdk-go/crypto/oid"
 )
 
 // ParsedSignedData is a parsed SignedData structure for golang friendly types.

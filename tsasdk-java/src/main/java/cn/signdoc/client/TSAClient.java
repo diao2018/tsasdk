@@ -15,7 +15,7 @@ import org.bouncycastle.asn1.cmp.PKIFailureInfo;
 import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.tsp.*;
-import org.bouncycastle.util.encoders.Base64;
+import java.util.Base64;
 
 /**
  * @author Rick Diao
@@ -115,8 +115,7 @@ public class TSAClient {
 		if ((tsaUsername != null) && !tsaUsername.equals("")) {
 			String userPassword = tsaUsername + ":" + tsaPassword;
 			tsaConnection.setRequestProperty("Authorization", "Basic "
-					+ new String(new sun.misc.BASE64Encoder()
-							.encode(userPassword.getBytes())));
+					+ Base64.getEncoder().encodeToString(userPassword.getBytes("UTF-8")));
 		}
 		OutputStream out = tsaConnection.getOutputStream();
 		out.write(requestBytes);
@@ -130,9 +129,9 @@ public class TSAClient {
 		}
 		byte[] respBytes = baos.toByteArray();
 		String encoding = tsaConnection.getContentEncoding();
-		
+
 		if (encoding != null && encoding.equalsIgnoreCase("base64")) {
-			respBytes = Base64.decode(new String(respBytes));
+			respBytes = Base64.getDecoder().decode(respBytes);
 		}
 		return respBytes;
 	}

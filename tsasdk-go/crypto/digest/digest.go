@@ -46,6 +46,30 @@ func ComputeHash(hash crypto.Hash, message []byte) ([]byte, error) {
 	return h.Sum(nil), nil
 }
 
+// ComputeHashByAlgorithm computes a hash using the Algorithm name.
+// This supports SM3 in addition to standard crypto.Hash algorithms.
+func ComputeHashByAlgorithm(alg Algorithm, message []byte) ([]byte, error) {
+	if alg == SM3 {
+		d := NewSM3()
+		_, err := d.Write(message)
+		if err != nil {
+			return nil, err
+		}
+		return d.Sum(nil), nil
+	}
+	h := alg.Hash()
+	_, err := h.Write(message)
+	if err != nil {
+		return nil, err
+	}
+	return h.Sum(nil), nil
+}
+
+// NewSM3 returns a new hash.Hash computing the SM3 checksum.
+func NewSM3() hash.Hash {
+	return New()
+}
+
 // NewDigest returns a Digest from alg and a hash.Hash object.
 func NewDigest(alg Algorithm, h hash.Hash) Digest {
 	return NewDigestFromBytes(alg, h.Sum(nil))

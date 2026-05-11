@@ -1,0 +1,41 @@
+# Build output
+bin/
+obj/
+target/
+build/
+dist/
+
+# Java
+*.class
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# CMake / C++
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+*.pdb
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

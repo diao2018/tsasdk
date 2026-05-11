@@ -5,8 +5,8 @@ import (
 	"encoding/asn1"
 	"encoding/hex"
 	"errors"
-	digest "github.com/tsasdk/tsasdk-go/crypto/digest"
-	"github.com/tsasdk/tsasdk-go/crypto/oid"
+	digest "github.com/diao2018/tsasdk/tsasdk-go/crypto/digest"
+	"github.com/diao2018/tsasdk/tsasdk-go/crypto/oid"
 	"math/big"
 )
 

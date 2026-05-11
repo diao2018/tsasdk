@@ -1,0 +1,21 @@
+{
+    "name": "signdoc/tsasdk-php",
+    "description": "RFC 3161 compliant HTTP client for trusted timestamp authority, with SM3 support",
+    "type": "library",
+    "keywords": ["timestamp", "rfc3161", "tsa", "sm3", "signature"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Rick Diao",
+            "email": "rickxy@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "ext-curl": "*",
+        "ext-openssl": "*"
+    },
+    "autoload": {
+        "classmap": ["TrustedTimestamps.php"]
+    }
+}

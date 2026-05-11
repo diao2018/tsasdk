@@ -7,10 +7,10 @@ import (
 	"encoding/asn1"
 	"errors"
 	"fmt"
-	asn1util "github.com/tsasdk/tsasdk-go/asn1"
-	"github.com/tsasdk/tsasdk-go/crypto/cms"
-	"github.com/tsasdk/tsasdk-go/crypto/digest"
-	"github.com/tsasdk/tsasdk-go/crypto/oid"
+	asn1util "github.com/diao2018/tsasdk/tsasdk-go/asn1"
+	"github.com/diao2018/tsasdk/tsasdk-go/crypto/cms"
+	"github.com/diao2018/tsasdk/tsasdk-go/crypto/digest"
+	"github.com/diao2018/tsasdk/tsasdk-go/crypto/oid"
 	"math/big"
 	"time"
 )
@@ -85,6 +85,16 @@ type TSTInfo struct {
 
 func (tst *TSTInfo) VerifyContent(message []byte) error {
 	hashAlg := tst.MessageImprint.HashAlgorithm.Algorithm
+
+	// Check SM3 first since it's not in standard crypto.Hash
+	if oid.IsSM3Algorithm(hashAlg) {
+		messageDigest, err := oid.ComputeSM3Hash(message)
+		if err != nil {
+			return err
+		}
+		return tst.Verify(messageDigest)
+	}
+
 	hash, ok := oid.ConvertToHash(hashAlg)
 	if !ok {
 		return fmt.Errorf("unrecognized hash algorithm: %v", hashAlg)

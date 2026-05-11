@@ -1,0 +1,17 @@
+[package]
+name = "tsasdk"
+version = "1.0.0"
+edition = "2021"
+description = "RFC 3161 compliant TSA client with SM3 support"
+authors = ["Rick Diao <rickxy@qq.com>"]
+license = "Apache-2.0"
+keywords = ["timestamp", "rfc3161", "tsa", "sm3", "signature"]
+categories = ["cryptography", "network-programming"]
+
+[dependencies]
+ureq = { version = "=2.6.2", default-features = false, features = ["tls"] }
+sha2 = "0.10"
+sm3 = "0.4"
+base64 = "0.21"
+hex = "0.4"
+thiserror = "1.0"
